@@ -1069,16 +1069,61 @@ body{font-family:var(--body);background:var(--bg);color:var(--text);min-height:1
 
   </div><!-- /content -->
 
-  <footer class="footer">
-    <div class="footer-badges">
-      <span class="footer-badge">⚡ 36 Local Tools</span>
-      <span class="footer-badge">🔒 Zero Uploads</span>
-      <span class="footer-badge">🆓 Always Free</span>
-      <span class="footer-badge">📦 pdf-lib</span>
-      <span class="footer-badge">🔎 PDF.js</span>
+  <footer style="background: linear-gradient(135deg, #0f1e1c 0%, #1d3632 100%); margin-top: 3rem; padding: 2rem 1.5rem 1.2rem; border-top: none;">
+  <div style="max-width: 1100px; margin: 0 auto;">
+
+    <!-- Descriptive text for Google & users -->
+    <div style="margin-bottom: 1.5rem; text-align: left;">
+      <h3 style="font-family: var(--serif); font-size: 0.9rem; color: var(--gold); margin-bottom: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase;">About RDJ Publishers</h3>
+      <p style="font-size: 0.78rem; line-height: 1.7; color: rgba(255,255,255,0.7);">
+        RDJ Publishers is a collection of <strong>free online tools, games, and utilities</strong> designed for students, professionals, and everyday users. 
+        Every tool works instantly in your browser – <strong>no sign-up, no login, no file uploads, and absolutely no cost</strong>. 
+        We believe that essential digital tools should be accessible to everyone, regardless of device or internet speed.
+      </p>
+      <p style="font-size: 0.78rem; line-height: 1.7; color: rgba(255,255,255,0.7); margin-top: 0.5rem;">
+        Our growing library includes <strong>productivity calculators, browser games, image utilities, interactive fun experiences, and student-friendly tools</strong> – 
+        all built with privacy in mind. Nothing you do on RDJ Publishers is ever sent to a server; everything runs locally on your device.
+      </p>
     </div>
-    <p>Files are processed <strong>locally in your browser</strong> — nothing is ever sent to any server.</p>
-    <p style="margin-top:.4rem;">© 2026 <span class="footer-brand">RDJ Publishers</span>. All rights reserved. &nbsp;·&nbsp; <a href="mailto:rdjpublishers@gmail.com">rdjpublishers@gmail.com</a> &nbsp;·&nbsp; <a href="#" onclick="navigate('about')">About</a> &nbsp;·&nbsp; <a href="#" onclick="navigate('contact')">Contact</a></p>
+
+    <!-- Quick facts -->
+    <div style="display: flex; flex-wrap: wrap; gap: 1rem; margin-bottom: 1.5rem; justify-content: space-between;">
+      <div style="flex: 1; min-width: 120px;">
+        <div style="font-size: 0.65rem; font-weight: 700; text-transform: uppercase; color: var(--gold); letter-spacing: 0.1em;">Categories</div>
+        <ul style="list-style: none; padding: 0; margin-top: 0.4rem;">
+          <li style="margin-bottom: 0.2rem;"><a onclick="goToCat('tools')" style="color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.75rem;">🔧 Tools</a></li>
+          <li style="margin-bottom: 0.2rem;"><a onclick="goToCat('games')" style="color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.75rem;">🎮 Games</a></li>
+          <li style="margin-bottom: 0.2rem;"><a onclick="goToCat('utilities')" style="color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.75rem;">⚙️ Utilities</a></li>
+          <li style="margin-bottom: 0.2rem;"><a onclick="goToCat('fun')" style="color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.75rem;">🎉 Fun</a></li>
+          <li><a onclick="goToCat('productivity')" style="color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.75rem;">📈 Productivity</a></li>
+        </ul>
+      </div>
+      <div style="flex: 1; min-width: 120px;">
+        <div style="font-size: 0.65rem; font-weight: 700; text-transform: uppercase; color: var(--gold); letter-spacing: 0.1em;">Company</div>
+        <ul style="list-style: none; padding: 0; margin-top: 0.4rem;">
+          <li style="margin-bottom: 0.2rem;"><a onclick="goTo('about')" style="color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.75rem;">📖 About Us</a></li>
+          <li style="margin-bottom: 0.2rem;"><a onclick="goTo('contact')" style="color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.75rem;">📞 Contact</a></li>
+          <li style="margin-bottom: 0.2rem;"><a onclick="goTo('privacy')" style="color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.75rem;">🔒 Privacy Policy</a></li>
+          <li><a href="/sitemap.html" style="color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.75rem;">🗺️ Sitemap</a></li>
+        </ul>
+      </div>
+      <div style="flex: 2; min-width: 180px;">
+        <div style="font-size: 0.65rem; font-weight: 700; text-transform: uppercase; color: var(--gold); letter-spacing: 0.1em;">Why choose RDJ Publishers?</div>
+        <ul style="list-style: none; padding: 0; margin-top: 0.4rem;">
+          <li style="margin-bottom: 0.2rem;"><span style="color: rgba(255,255,255,0.6); font-size: 0.75rem;">✓ 100% free – no premium tiers</span></li>
+          <li style="margin-bottom: 0.2rem;"><span style="color: rgba(255,255,255,0.6); font-size: 0.75rem;">✓ No registration or login required</span></li>
+          <li style="margin-bottom: 0.2rem;"><span style="color: rgba(255,255,255,0.6); font-size: 0.75rem;">✓ Works entirely in your browser (no uploads)</span></li>
+          <li style="margin-bottom: 0.2rem;"><span style="color: rgba(255,255,255,0.6); font-size: 0.75rem;">✓ Mobile‑friendly & fast loading</span></li>
+          <li><span style="color: rgba(255,255,255,0.6); font-size: 0.75rem;">✓ New tools added regularly</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Copyright & closing -->
+    <div style="text-align: center; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 1rem; font-size: 0.7rem; color: rgba(255,255,255,0.4);">
+      © 2026 RDJ Publishers — All tools are free, privacy‑first, and require no sign‑up. Built for students and everyday users.
+    </div>
+  </div>
   </footer>
 
 </div><!-- /app -->
