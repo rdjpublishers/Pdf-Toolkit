@@ -779,6 +779,188 @@ body{font-family:var(--body);background:var(--bg);color:var(--text);min-height:1
 .info-table td:first-child{font-weight:600;color:var(--text);width:40%;font-family:var(--mono);}
 
 
+/* ═══════════════════════════════════════════════
+   ADSENSE-READY CONTENT SECTIONS (Intro / How-to / Why / FAQ)
+═══════════════════════════════════════════════ */
+.adn-intro,
+.adn-context-note,
+.adn-howto,
+.adn-why,
+.adn-faq{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:var(--r);
+  padding:1.6rem 1.5rem;
+  margin: 2rem 0;
+  box-shadow:var(--shadow-sm);
+}
+
+.adn-intro-title,
+.adn-section-title{
+  font-family:var(--head);
+  font-size:1.25rem;
+  font-weight:700;
+  color:var(--text);
+  letter-spacing:-.01em;
+  margin-bottom:.7rem;
+  line-height:1.3;
+}
+
+.adn-intro p,
+.adn-context-note p,
+.adn-why p,
+.adn-howto .adn-section-lead{
+  font-size:.88rem;
+  line-height:1.7;
+  color:var(--text2);
+}
+
+.adn-intro p{ margin-bottom:.6rem; }
+.adn-intro p:last-child{ margin-bottom:0; }
+
+.adn-context-note p{ margin:0; }
+
+/* HOW-TO STEPS */
+.adn-steps{
+  list-style:none;
+  padding:0;
+  margin:1rem 0 0;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:.9rem;
+  counter-reset:adnstep;
+}
+.adn-steps li{
+  display:flex;
+  gap:.8rem;
+  align-items:flex-start;
+  background:var(--surface2);
+  border:1px solid var(--border);
+  border-radius:var(--r-sm);
+  padding:.9rem 1rem;
+}
+.adn-step-num{
+  flex-shrink:0;
+  width:30px;height:30px;
+  display:inline-flex;align-items:center;justify-content:center;
+  background:var(--red);
+  color:#fff;
+  font-family:var(--head);
+  font-weight:700;
+  font-size:.85rem;
+  border-radius:50%;
+  line-height:1;
+}
+.adn-steps li h3{
+  font-family:var(--head);
+  font-size:.92rem;
+  font-weight:700;
+  color:var(--text);
+  margin-bottom:.25rem;
+}
+.adn-steps li p{
+  font-size:.78rem;
+  line-height:1.55;
+  color:var(--text2);
+  margin:0;
+}
+.adn-steps li p em{ color:var(--red); font-style:normal; font-weight:600; }
+
+@media (max-width: 720px){
+  .adn-steps{ grid-template-columns:1fr; }
+}
+
+@media (max-width: 480px){
+  .adn-intro,
+  .adn-context-note,
+  .adn-howto,
+  .adn-why,
+  .adn-faq{ padding:1.2rem 1rem; }
+  .adn-intro-title,
+  .adn-section-title{ font-size:1.1rem; }
+  .adn-intro p,
+  .adn-context-note p,
+  .adn-why p,
+  .adn-howto .adn-section-lead{ font-size:.85rem; }
+}
+
+/* WHY SECTION — emphasised callout look */
+.adn-why{
+  background:linear-gradient(135deg,#f0f4ff 0%, #fce8ec 100%);
+  border-color:rgba(59,130,246,.18);
+}
+.adn-why p{ margin-bottom:.7rem; }
+.adn-why p:last-child{ margin-bottom:0; }
+.adn-why p strong{ color:var(--text); }
+
+/* FAQ — native <details>/<summary> */
+.adn-faq-item{
+  background:var(--surface2);
+  border:1px solid var(--border);
+  border-radius:var(--r-sm);
+  padding:.7rem .95rem;
+  margin-top:.6rem;
+  transition:.2s;
+}
+.adn-faq-item[open]{
+  background:var(--surface);
+  border-color:var(--border2);
+  box-shadow:var(--shadow-sm);
+}
+.adn-faq-item summary{
+  cursor:pointer;
+  font-family:var(--head);
+  font-size:.95rem;
+  font-weight:600;
+  color:var(--text);
+  list-style:none;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:.8rem;
+  padding:.2rem 0;
+}
+.adn-faq-item summary::-webkit-details-marker{ display:none; }
+.adn-faq-item summary::after{
+  content:"+";
+  font-family:var(--head);
+  font-weight:700;
+  font-size:1.2rem;
+  color:var(--red);
+  transition:transform .2s;
+  flex-shrink:0;
+}
+.adn-faq-item[open] summary::after{ content:"−"; }
+.adn-faq-item p{
+  font-size:.82rem;
+  line-height:1.65;
+  color:var(--text2);
+  margin:.5rem 0 0;
+  padding-top:.5rem;
+  border-top:1px solid var(--border);
+}
+.adn-faq-item p a{
+  color:var(--red);
+  text-decoration:underline;
+  word-break:break-word;
+}
+
+@media (max-width: 480px){
+  .adn-faq-item summary{ font-size:.88rem; }
+  .adn-faq-item p{ font-size:.8rem; }
+}
+
+/* LEGAL BAR (footer disclosure + links) */
+.adn-legal-bar{ text-align:center; }
+.adn-footer-links a:hover,
+.adn-footer-links-row a:hover{ color:var(--red) !important; }
+.adn-footer-links-row li{ padding:0; }
+
+@media (max-width: 480px){
+  .adn-legal-bar p{ font-size:.65rem; }
+  .adn-footer-links-row{ gap:.3rem .7rem !important; font-size:.65rem !important; }
+}
+
 </style>
 </head>
 <body>
@@ -882,6 +1064,12 @@ body{font-family:var(--body);background:var(--bg);color:var(--text);min-height:1
         </div>
       </div>
 
+      <!-- INTRO PARAGRAPH -->
+      <section class="adn-intro" aria-label="Introduction to the PDF Toolkit">
+        <h2 class="adn-intro-title">A Private, Browser-Based PDF Workshop</h2>
+        <p>The RDJ Publishers PDF Toolkit is a free collection of more than three dozen focused utilities for working with PDF documents &mdash; built for students preparing assignments, office professionals tidying reports, freelancers sending invoices, and anyone who occasionally needs to merge, split, compress, or convert a file without installing heavyweight software. There is nothing to download and nothing to configure. Every tool opens in your browser tab and runs entirely on your device: your PDF is read into local memory, edited with JavaScript libraries like <em>pdf-lib</em> and <em>PDF.js</em>, and handed back to you as a fresh download. No copy of your file is ever transmitted to our servers, stored in a database, or shared with third parties &mdash; the page simply does not have the ability to upload it.</p>
+      </section>
+
       <div class="cat-tabs" id="cat-tabs-home">
         <button class="cat-tab active" data-cat="all" onclick="filterCat('all',this)">All <span class="cat-tab-count">38</span></button>
         <button class="cat-tab" data-cat="organize" onclick="filterCat('organize',this)">Organize <span class="cat-tab-count">7</span></button>
@@ -891,11 +1079,114 @@ body{font-family:var(--body);background:var(--bg);color:var(--text);min-height:1
         <button class="cat-tab" data-cat="optimize" onclick="filterCat('optimize',this)">Optimize <span class="cat-tab-count">6</span></button>
       </div>
 
+      <!-- SHORT CONTEXT NOTE ABOVE TOOL LIST -->
+      <div class="adn-context-note" aria-label="About the tools available">
+        <p>The grid below covers the everyday jobs most people open a PDF for &mdash; <strong>merge</strong> several files into one, <strong>split</strong> a thick report into chapters, <strong>compress</strong> a scan for email, <strong>convert</strong> between PDF, text, and image formats, <strong>rotate</strong> or <strong>reorder</strong> pages, add a <strong>watermark</strong> or <strong>page numbers</strong>, <strong>sign</strong> with a drawn signature, <strong>protect</strong> with a password, and several smaller utilities such as word count, metadata editing, and grayscale conversion. Use the category tabs to narrow the list, then tap any card to open the tool.</p>
+      </div>
+
       <div class="section-hd">
         <div class="section-hd-icon">⚡</div>
         <div class="section-hd-text">All Tools</div>
       </div>
       <div class="tools-grid" id="tools-grid"></div>
+
+      <!-- HOW TO USE THIS PDF TOOLKIT -->
+      <section class="adn-howto" aria-label="How to use the PDF Toolkit">
+        <h2 class="adn-section-title">How to Use This PDF Toolkit</h2>
+        <p class="adn-section-lead">Every tool in this toolkit follows the same simple flow, so once you have used one the rest feel familiar.</p>
+        <ol class="adn-steps">
+          <li>
+            <span class="adn-step-num">1</span>
+            <div>
+              <h3>Pick the tool that matches your task</h3>
+              <p>Browse the grid above or use the category tabs &mdash; <em>Organize</em>, <em>Convert</em>, <em>Edit</em>, <em>Secure</em>, or <em>Optimize</em>. Each card shows a short description of what the tool does.</p>
+            </div>
+          </li>
+          <li>
+            <span class="adn-step-num">2</span>
+            <div>
+              <h3>Open the tool and read the on-screen notes</h3>
+              <p>Tap a card to load its detail page. You will see the expected input format, any optional settings (page range, output quality, position, etc.), and a short tip explaining what each option does.</p>
+            </div>
+          </li>
+          <li>
+            <span class="adn-step-num">3</span>
+            <div>
+              <h3>Select your file (or files) from your device</h3>
+              <p>Click the upload area or drag the file into it. Multi-file tools such as <em>Merge PDF</em> and <em>Image to PDF</em> accept several files at once and let you reorder them before processing.</p>
+            </div>
+          </li>
+          <li>
+            <span class="adn-step-num">4</span>
+            <div>
+              <h3>Adjust the tool-specific options</h3>
+              <p>Set the things that actually matter for your document &mdash; for example, the page range to extract, the watermark text to stamp, the compression level, or the page size when resizing.</p>
+            </div>
+          </li>
+          <li>
+            <span class="adn-step-num">5</span>
+            <div>
+              <h3>Click <em>Process File</em> and watch the progress bar</h3>
+              <p>All the work happens locally in your browser. Most operations finish in a few seconds; longer documents may take a little more time depending on the size of the file and your device.</p>
+            </div>
+          </li>
+          <li>
+            <span class="adn-step-num">6</span>
+            <div>
+              <h3>Download the result</h3>
+              <p>When the progress bar completes, a result card appears with a download button. The file is saved by your browser in the usual way &mdash; you can also preview it on the page when the tool produces an image or text output.</p>
+            </div>
+          </li>
+        </ol>
+      </section>
+
+      <!-- WHY USE A BROWSER-BASED PDF TOOL -->
+      <section class="adn-why" aria-label="Why use a browser-based PDF tool">
+        <h2 class="adn-section-title">Why Use a Browser-Based PDF Tool</h2>
+        <p>Most online PDF services quietly upload your document to a remote server, process it there, and then send a result file back. That journey &mdash; from your machine, through their infrastructure, to wherever the file ends up &mdash; is hard to audit and impossible to undo. Even a service that promises to delete the file after processing still sees its contents in clear form.</p>
+        <p>A browser-based tool takes a different approach. The page you load contains a small JavaScript program (in our case <strong>pdf-lib</strong> and <strong>PDF.js</strong>) that runs entirely on your own computer. When you open a PDF here, the bytes never leave your device: they are read by JavaScript, modified in memory, and packaged into a new file that you download directly. There is nothing to sign up for, no account to create, no email address to hand over, and no premium tier unlocking basic features.</p>
+        <p>The practical benefits stack up. Because nothing is uploaded, the tools work just as well on a slow connection, on a school or office network that blocks large file transfers, or on a mobile phone while you are travelling. They run on any modern browser &mdash; Chrome, Edge, Firefox, Safari, or Samsung Internet &mdash; on Windows, macOS, Linux, Android, and iOS. You can use them on a shared computer without leaving traces in someone else's cloud account, and you can keep using them even if our servers go down, because the page itself only needs to load the JavaScript libraries once. For most everyday PDF jobs, that is exactly the right trade-off: a little more work for your device's CPU, in exchange for a much smaller privacy footprint.</p>
+      </section>
+
+      <!-- FAQ SECTION -->
+      <section class="adn-faq" aria-label="Frequently asked questions about the PDF Toolkit">
+        <h2 class="adn-section-title">Frequently Asked Questions</h2>
+
+        <details class="adn-faq-item">
+          <summary>Are my PDF files uploaded to a server?</summary>
+          <p>No. The PDF Toolkit runs entirely inside your browser using JavaScript libraries such as pdf-lib and PDF.js. When you select a file, it is read into your device's local memory, edited there, and packaged into a new file that your browser downloads directly. The page has no upload endpoint at all, so the file cannot leave your computer even by accident.</p>
+        </details>
+
+        <details class="adn-faq-item">
+          <summary>Is this PDF Toolkit free to use?</summary>
+          <p>Yes. Every tool on the page is free, with no usage caps, no watermarks on output, and no premium tier that locks basic features. The toolkit is supported by unobtrusive advertising, which is clearly labelled in the footer of this page. You do not have to pay, sign up, or share an email address to use any of the tools.</p>
+        </details>
+
+        <details class="adn-faq-item">
+          <summary>Does it work on mobile phones?</summary>
+          <p>It works on any modern smartphone or tablet browser, including Chrome on Android and Safari on iOS. The interface is responsive, so the same tools adapt to a narrow screen. A few heavier operations &mdash; such as compressing a very large scanned PDF &mdash; take a bit longer on phones than on laptops, but the workflow and results are identical.</p>
+        </details>
+
+        <details class="adn-faq-item">
+          <summary>Is there a file size limit?</summary>
+          <p>There is no limit set by our side because the file never reaches our servers. The practical ceiling is set by your device: how much free RAM it has and which browser you use. On a typical laptop you can comfortably work with PDFs up to a few hundred megabytes; on older phones, very large files may run slower or hit a browser memory cap.</p>
+        </details>
+
+        <details class="adn-faq-item">
+          <summary>Do I need to create an account?</summary>
+          <p>No account is needed and none can be created. There is no login form, no sign-up flow, and no personal data we could attach to a profile. You open the page, use the tool you need, and download the result. If you close the tab, there is nothing for us to &ldquo;log you out&rdquo; of.</p>
+        </details>
+
+        <details class="adn-faq-item">
+          <summary>How is my privacy protected?</summary>
+          <p>Privacy is protected primarily by design: because there is no server-side processing, the documents you work on are never collected in the first place. We do not set tracking cookies tied to your files, we do not embed third-party analytics on the tool pages, and the only network requests the page makes are to load the public JavaScript libraries from well-known CDNs. You can read the full policy on our <a href="https://rdjpublishers.com/privacy-policy.html">Privacy Policy</a> page.</p>
+        </details>
+
+        <details class="adn-faq-item">
+          <summary>Do the tools work offline after the first visit?</summary>
+          <p>After you have loaded the toolkit once, your browser caches most of the assets, so basic page navigation keeps working on a flaky connection. A specific tool that needs a fresh file from your device still requires the page to be open, but it does not need a live round-trip to our servers to process it.</p>
+        </details>
+      </section>
     </section>
 
     <!-- ══════════ ALL TOOLS PAGE ══════════ -->
@@ -1100,11 +1391,12 @@ body{font-family:var(--body);background:var(--bg);color:var(--text);min-height:1
       </div>
       <div style="flex: 1; min-width: 120px;">
         <div style="font-size: 0.65rem; font-weight: 700; text-transform: uppercase; color: var(--gold); letter-spacing: 0.1em;">Company</div>
-        <ul style="list-style: none; padding: 0; margin-top: 0.4rem;">
-          <li style="margin-bottom: 0.2rem;"><a href="#" onclick="goTo('about'); return false;" style="color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.75rem; cursor: pointer;">📖 About Us</a></li>
-          <li style="margin-bottom: 0.2rem;"><a href="#" onclick="goTo('contact'); return false;" style="color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.75rem; cursor: pointer;">📞 Contact</a></li>
-          <li style="margin-bottom: 0.2rem;"><a href="#" onclick="goTo('privacy'); return false;" style="color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.75rem; cursor: pointer;">🔒 Privacy Policy</a></li>
-          <li><a href="/sitemap.html" style="color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.75rem; cursor: pointer;">🗺️ Sitemap</a></li>
+        <ul class="adn-footer-links" style="list-style: none; padding: 0; margin-top: 0.4rem;">
+          <li style="margin-bottom: 0.2rem;"><a href="https://rdjpublishers.com/about.html" style="color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.75rem;">📖 About</a></li>
+          <li style="margin-bottom: 0.2rem;"><a href="https://rdjpublishers.com/contact.html" style="color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.75rem;">📞 Contact</a></li>
+          <li style="margin-bottom: 0.2rem;"><a href="https://rdjpublishers.com/privacy-policy.html" style="color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.75rem;">🔒 Privacy Policy</a></li>
+          <li style="margin-bottom: 0.2rem;"><a href="https://rdjpublishers.com/terms.html" style="color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.75rem;">📄 Terms &amp; Conditions</a></li>
+          <li><a href="https://rdjpublishers.com/sitemap.xml" style="color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.75rem;">🗺️ Sitemap</a></li>
         </ul>
       </div>
       <div style="flex: 2; min-width: 180px;">
@@ -1119,9 +1411,21 @@ body{font-family:var(--body);background:var(--bg);color:var(--text);min-height:1
       </div>
     </div>
 
-    <!-- Copyright & closing -->
-    <div style="text-align: center; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 1rem; font-size: 0.7rem; color: rgba(255,255,255,0.4);">
-      © 2026 RDJ Publishers — All tools are free, privacy‑first, and require no sign‑up. Built for students and everyday users.
+    <!-- Copyright + AdSense disclosure + legal links bar -->
+    <div class="adn-legal-bar" style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 1rem; margin-top: 0.5rem; text-align: center; font-size: 0.7rem; color: rgba(255,255,255,0.55); line-height: 1.7;">
+      <div style="font-weight: 700; color: rgba(255,255,255,0.7); letter-spacing: 0.04em; margin-bottom: 0.4rem;">© 2026 RDJ PUBLISHERS</div>
+      <p style="margin: 0 auto 0.7rem; max-width: 760px; color: rgba(255,255,255,0.5);">Advertising on this page may be served by Google AdSense using cookies or device-level identifiers. See our <a href="https://rdjpublishers.com/privacy-policy.html" style="color: rgba(255,255,255,0.75); text-decoration: underline;">Privacy Policy</a> for details and opt-out information.</p>
+      <ul class="adn-footer-links-row" style="list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 0.4rem 1.1rem; font-size: 0.7rem;">
+        <li><a href="https://rdjpublishers.com/about.html" style="color: rgba(255,255,255,0.65); text-decoration: none;">About</a></li>
+        <li style="color: rgba(255,255,255,0.25);">·</li>
+        <li><a href="https://rdjpublishers.com/contact.html" style="color: rgba(255,255,255,0.65); text-decoration: none;">Contact</a></li>
+        <li style="color: rgba(255,255,255,0.25);">·</li>
+        <li><a href="https://rdjpublishers.com/privacy-policy.html" style="color: rgba(255,255,255,0.65); text-decoration: none;">Privacy Policy</a></li>
+        <li style="color: rgba(255,255,255,0.25);">·</li>
+        <li><a href="https://rdjpublishers.com/terms.html" style="color: rgba(255,255,255,0.65); text-decoration: none;">Terms &amp; Conditions</a></li>
+        <li style="color: rgba(255,255,255,0.25);">·</li>
+        <li><a href="https://rdjpublishers.com/sitemap.xml" style="color: rgba(255,255,255,0.65); text-decoration: none;">Sitemap</a></li>
+      </ul>
     </div>
   </div>
   </footer>
