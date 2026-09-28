@@ -1497,7 +1497,7 @@ const TOOLS = [
   { id:'add-links', name:'Add Links to PDF', cat:'edit', icon:'🌐', desc:'Insert clickable URL', multi:false, accept:'.pdf', color:'#2563eb' },
   { id:'crop', name:'Crop PDF', cat:'edit', icon:'✂', desc:'Trim margins/crop box', multi:false, accept:'.pdf', color:'#16a34a' },
   { id:'resize', name:'Resize PDF', cat:'edit', icon:'📐', desc:'Scale to paper size', multi:false, accept:'.pdf', color:'#7c3aed' },
-  { id:'nup', name:'N-up PDF', cat:'edit', icon:'🗂️', desc:'2-up / 4-up tiled layouts', multi:false, accept:'.pdf', color:'#0891b2' },
+  { id:'nup', name:'N-up PDF', cat:'edit', icon:'🗂️', desc:'2-up / 4-up / 8-up / 4×4 tiled layouts', multi:false, accept:'.pdf', color:'#0891b2' },
   { id:'blank-pdf', name:'Blank PDF', cat:'edit', icon:'📄', desc:'Create blank PDF document', multi:false, accept:'', color:'#64748b' },
   { id:'header-footer', name:'Add Header / Footer', cat:'edit', icon:'📰', desc:'Add header & footer text', multi:false, accept:'.pdf', color:'#b45309' },
   { id:'background', name:'Add Background', cat:'edit', icon:'🎨', desc:'Solid color background', multi:false, accept:'.pdf', color:'#9333ea' },
@@ -1743,7 +1743,7 @@ function buildOptions(id) {
     case 'resize':
       return card(fg('Paper Size',sel('opt-resize',[{v:'A4',l:'A4 (595×842)'},{v:'Letter',l:'US Letter (612×792)'},{v:'A3',l:'A3 (842×1191)'},{v:'Legal',l:'Legal (612×1008)'}],'A4')));
     case 'nup':
-      return card(fg('Layout',sel('opt-nup',[{v:'2',l:'2-up (2 pages per sheet)'},{v:'4',l:'4-up (4 pages per sheet)'},{v:'8',l:'8-up (8 pages per sheet)'}],'2')));
+      return card(fg('Layout',sel('opt-nup',[{v:'2',l:'2-up (2 pages per sheet)'},{v:'4',l:'4-up (4 pages per sheet)'},{v:'8',l:'8-up (8 pages per sheet)'},{v:'16',l:'4×4 (16 pages per sheet)'}],'2')));
     case 'blank-pdf':
       return card(fg('Number of Pages',input('opt-blank-pages','number','1','1')) + fg('Page Size',sel('opt-blank-size',[{v:'A4',l:'A4 (595×842)'},{v:'Letter',l:'US Letter (612×792)'}],'A4')));
     case 'header-footer':
@@ -2522,8 +2522,12 @@ async function runTool(id) {
       const out = await PDFDocument.create();
       const [sheetW,sheetH] = [595,842];
       // cols × rows must equal n
-      const cols = n === 2 ? 1 : 2;                      // 2-up: 1 col; 4-up & 8-up: 2 cols
-      const rows = n === 2 ? 2 : n === 8 ? 4 : 2;       // 8-up: 4 rows; others: 2 rows
+      let cols, rows;
+      if (n === 2)       { cols = 1; rows = 2; }   // 2-up:   1×2
+      else if (n === 4)  { cols = 2; rows = 2; }   // 4-up:   2×2
+      else if (n === 8)  { cols = 2; rows = 4; }   // 8-up:   2×4
+      else if (n === 16) { cols = 4; rows = 4; }   // 16-up:  4×4
+      else               { cols = 1; rows = n; }   // fallback: 1×n
       const cellW = sheetW/cols, cellH = sheetH/rows;
       let sheet = out.addPage([sheetW,sheetH]);
       let cell = 0;
