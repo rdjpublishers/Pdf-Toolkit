@@ -1144,7 +1144,7 @@ body{font-family:var(--body);background:var(--bg);color:var(--text);min-height:1
       <section class="adn-why" aria-label="Why use a browser-based PDF tool">
         <h2 class="adn-section-title">Why Use a Browser-Based PDF Tool</h2>
         <p>Most online PDF services quietly upload your document to a remote server, process it there, and then send a result file back. That journey &mdash; from your machine, through their infrastructure, to wherever the file ends up &mdash; is hard to audit and impossible to undo. Even a service that promises to delete the file after processing still sees its contents in clear form.</p>
-        <p>A browser-based tool takes a different approach. The page you load contains a small JavaScript program (in our case <strong>pdf-lib</strong> and <strong>PDF.js</strong>) that runs entirely on your own computer. When you open a PDF here, the bytes never leave your device: they are read by JavaScript, modified in memory, and packaged into a new file that you download directly. There is nothing to sign up for, no account to create, no email address to hand over, and no premium tier unlocking basic features.</p>
+        <p>A browser-based tool takes a different approach. The page you load contains a small JavaScript program (in our case <strong>pdf-lib</strong> and <strong>PDF.js</strong>) that runs on your own computer. When you open a PDF here, the file is read by JavaScript, modified in memory, and packaged into a new file that you download directly. The bytes are not uploaded to our servers. There is nothing to sign up for, no account to create, no email address to hand over, and no premium tier unlocking basic features.</p>
         <p>The practical benefits stack up. Because nothing is uploaded, the tools work just as well on a slow connection, on a school or office network that blocks large file transfers, or on a mobile phone while you are travelling. They run on any modern browser &mdash; Chrome, Edge, Firefox, Safari, or Samsung Internet &mdash; on Windows, macOS, Linux, Android, and iOS. You can use them on a shared computer without leaving traces in someone else's cloud account, and you can keep using them even if our servers go down, because the page itself only needs to load the JavaScript libraries once. For most everyday PDF jobs, that is exactly the right trade-off: a little more work for your device's CPU, in exchange for a much smaller privacy footprint.</p>
       </section>
 
@@ -1179,7 +1179,7 @@ body{font-family:var(--body);background:var(--bg);color:var(--text);min-height:1
 
         <details class="adn-faq-item">
           <summary>How is my privacy protected?</summary>
-          <p>Privacy is protected primarily by design: because there is no server-side processing of your files, the documents you work on are never uploaded to us in the first place. The site does use Google Analytics and Google AdSense, which use cookies and collect usage information such as pages viewed and device details; this site does not send your PDF files to them. The page also loads public JavaScript libraries from well-known CDNs. You can read the full policy on our <a href="https://rdjpublishers.com/privacy-policy.html">Privacy Policy</a> page.</p>
+          <p>Privacy is protected primarily by design: there is no server-side processing of your files, so the documents you work on are not uploaded to us. The site does use Google Analytics and Google AdSense, which use cookies and collect usage information such as pages viewed and device details; this site does not send your PDF files to them. The page also loads public JavaScript libraries from well-known CDNs. You can read the full policy on our <a href="https://rdjpublishers.com/privacy-policy.html">Privacy Policy</a> page.</p>
         </details>
 
         <details class="adn-faq-item">
@@ -1193,7 +1193,7 @@ body{font-family:var(--body);background:var(--bg);color:var(--text);min-height:1
     <section id="page-tools" class="page">
       <div style="margin-bottom:1.5rem">
         <h1 style="font-family:var(--head);font-size:1.8rem;font-weight:800;color:var(--text);">All PDF Tools</h1>
-        <p style="color:var(--text2);margin-top:.3rem;font-size:.9rem;">38 tools — all local, all free, zero cloud dependency</p>
+        <p style="color:var(--text2);margin-top:.3rem;font-size:.9rem;">36+ tools — all local, all free, zero cloud dependency</p>
       </div>
       <div class="tools-grid" id="tools-grid-2"></div>
       <button class="back-btn" onclick="navigate('home')">← Back to Home</button>
@@ -1620,7 +1620,7 @@ function openTool(id) {
         <input type="file" id="file-input" ${currentTool.multi ? 'multiple' : ''} accept="${currentTool.accept}" onchange="handleFilesInput(event)">
         <div class="dropzone-icon">📂</div>
         <div class="dropzone-text">Click or drag & drop ${acceptLabel} ${multiLabel}</div>
-        <div class="dropzone-hint">All processing is local — files never leave your device</div>
+        <div class="dropzone-hint">All processing is local — files are not uploaded to our servers</div>
       </div>
       <div id="file-list"></div>
     </div>`;
